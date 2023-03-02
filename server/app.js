@@ -2,9 +2,12 @@ const express = require('express')
 const app = express()
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
+const cors = require('cors')
 const ShoppingList = require('./models/shoppingList')
+
 const PORT = 3000
 
+app.use(cors())
 app.use(bodyParser.json())
 
 // connect to the database

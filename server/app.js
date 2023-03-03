@@ -19,6 +19,11 @@ mongoose.connect('mongodb://localhost:27017/grocery', {useNewUrlParser: true}, (
     }
 })
 
+app.get('/api/shopping-lists', async (req,res) => {
+    let shoppingLists = await ShoppingList.find({})
+    res.json(shoppingLists)
+})
+
 app.post('/api/shopping-lists',async (req,res) => {
     const name = req.body.name
     const address = req.body.address
